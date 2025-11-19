@@ -46,13 +46,13 @@ function App() {
       {/* Layout */}
       <div className="flex">
         {/* Sidebar */}
-        <aside className={`fixed z-40 h-screen w-72 ${glassClass} ${shadowClass} ${ringHover} transition-transform duration-300`} style={{ backgroundColor: colors.bgSecondary, transform: sidebarOpen ? 'translateX(0)' : 'translateX(-100%)' }}>
+        <aside className={`fixed z-40 h-screen w-72 ${glassClass} ${shadowClass} ${ringHover} transform transition-transform duration-300 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`} style={{ backgroundColor: colors.bgSecondary }}>
           <div className="flex items-center justify-between px-5 pt-5 pb-3">
             <div className="flex items-center gap-3">
               <div className="w-9 h-9 rounded-lg" style={{ background: `linear-gradient(135deg, ${colors.accentTeal}33, ${colors.accentGold}33)` }} />
               <div className="font-semibold tracking-wide">Dark Whale SAAS</div>
             </div>
-            <button className="p-2 rounded-lg hover:bg-white/5" onClick={() => setSidebarOpen(false)}>
+            <button className="p-2 rounded-lg hover:bg-white/5 md:hidden" onClick={() => setSidebarOpen(false)}>
               <X size={20} />
             </button>
           </div>
@@ -176,7 +176,7 @@ function LineChartCard() {
           </linearGradient>
         </defs>
         <polyline fill="none" stroke={colors.accentGold} strokeWidth="0.6" points={path} />
-        <polygon points={`0,60 ${path.replaceAll(',', ' ')} 100,60`} fill="url(#lgrad)" opacity="0.35" />
+        <polygon points={`0,60 ${path} 100,60`} fill="url(#lgrad)" opacity="0.35" />
       </svg>
     </div>
   )
@@ -200,7 +200,7 @@ function DonutChartCard() {
         <svg viewBox="0 0 100 100" className="w-32 h-32">
           <circle cx="50" cy="50" r={radius} stroke="#1b2b45" strokeWidth="12" fill="none" />
           <circle cx="50" cy="50" r={radius} stroke={colors.accentTeal} strokeWidth="12" fill="none" strokeDasharray={circumference} strokeDashoffset={tealOffset} transform="rotate(-90 50 50)" />
-          <circle cx="50" cy="50" r={radius} stroke={colors.accentGold} strokeWidth="12" fill="none" strokeDasharray={circumference} strokeDashoffset={goldOffset} transform="rotate(${(teal / total) * 360 - 90} 50 50)" opacity="0.85" />
+          <circle cx="50" cy="50" r={radius} stroke={colors.accentGold} strokeWidth="12" fill="none" strokeDasharray={circumference} strokeDashoffset={goldOffset} transform={`rotate(${(teal / total) * 360 - 90} 50 50)`} opacity="0.85" />
           <text x="50" y="54" textAnchor="middle" style={{ fontSize: 10, fill: colors.text }}>100%</text>
         </svg>
         <div className="text-sm space-y-2">
@@ -258,7 +258,7 @@ function ClientsView() {
           <button className={`${glassClass} ${shadowClass} ${ringHover} text-sm px-3 py-2 rounded-xl flex items-center gap-2`}>
             <Filter size={16} /> Filter
           </button>
-          <select className={`${glassClass} ${shadowClass} rounded-xl text-sm px-3 py-2 bg-transparent outline-none` } value={filter} onChange={e => setFilter(e.target.value)}>
+          <select className={`${glassClass} ${shadowClass} rounded-xl text-sm px-3 py-2 bg-transparent outline-none`} value={filter} onChange={e => setFilter(e.target.value)}>
             {['Alle', 'Aktiv', 'Inaktiv', 'Lead'].map(s => <option key={s} value={s} className="bg-[#0A192F]">{s}</option>)}
           </select>
         </div>
