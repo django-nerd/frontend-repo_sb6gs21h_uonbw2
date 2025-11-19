@@ -3,13 +3,13 @@
 > vite
 
 
-  VITE v5.4.20  ready in 253 ms
+  VITE v5.4.20  ready in 245 ms
 
   ➜  Local:   http://localhost:3000/
   ➜  Network: http://172.20.2.181:3000/
-9:16:44 AM [vite] Pre-transform error: Transform failed with 1 error:
+9:23:53 AM [vite] Pre-transform error: Transform failed with 1 error:
 /home/workspace/src/App.jsx:44:595: ERROR: Expected "}" but found ")"
-9:16:44 AM [vite] Internal server error: Transform failed with 1 error:
+9:23:53 AM [vite] Internal server error: Transform failed with 1 error:
 /home/workspace/src/App.jsx:44:595: ERROR: Expected "}" but found ")"
   Plugin: vite:esbuild
   File: /home/workspace/src/App.jsx:44:595
@@ -32,7 +32,7 @@
       at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
       at Readable.push (node:internal/streams/readable:390:5)
       at Pipe.onStreamRead (node:internal/stream_base_commons:189:23)
-9:17:02 AM [vite] Internal server error: Transform failed with 1 error:
+9:23:57 AM [vite] Internal server error: Transform failed with 1 error:
 /home/workspace/src/App.jsx:44:595: ERROR: Expected "}" but found ")"
   Plugin: vite:esbuild
   File: /home/workspace/src/App.jsx:44:595
